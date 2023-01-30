@@ -21,7 +21,9 @@ const octokitOptions: {
 };
 
 const authToken = process.env.GH_TOKEN;
-const baseUrl = `http://github.ibm.com/api/v3`;
+const baseUrl = process.env.GHE_URL
+  ? process.env.GHE_URL
+  : `https://github.ibm.com/api/v3`;
 
 let octokit;
 if (authToken) {
